@@ -1,0 +1,10 @@
+{
+  "name": "Chandergari",
+  "description": "Your journey, perfectly mapped out.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
