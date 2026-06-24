@@ -24,7 +24,7 @@ function getGenAI(): GoogleGenAI {
     apiKey,
     httpOptions: {
       headers: {
-        "User-Agent": "aistudio-build",
+        "User-Agent": "chander-gari-app",
       },
     },
   });
@@ -443,7 +443,7 @@ Here is an analysis of your current travel budget status:
 });
 
 // 3. Image Studio (Generate and Edit Images)
-app.post("/api/studio/image-generate", async (req, res) => {
+app.post("/api/image-generate", async (req, res) => {
   const { prompt, ratio, size, studioQuality, originalImageBase64, mimeType } = req.body;
   try {
     const ai = getGenAI();
@@ -541,7 +541,7 @@ app.post("/api/studio/image-generate", async (req, res) => {
 
 // 4. Video Generation - Veo
 // Pattern Step 1: Start Operation
-app.post("/api/studio/video-generate", async (req, res) => {
+app.post("/api/video-generate", async (req, res) => {
   try {
     const { prompt, aspectRatio, startingImageBase64, mimeType } = req.body;
     const ai = getGenAI();
@@ -585,7 +585,7 @@ app.post("/api/studio/video-generate", async (req, res) => {
 });
 
 // Pattern Step 2: Poll status
-app.post("/api/studio/video-status", async (req, res) => {
+app.post("/api/video-status", async (req, res) => {
   try {
     const { operationName } = req.body;
     if (!operationName) {
@@ -626,7 +626,7 @@ app.post("/api/studio/video-status", async (req, res) => {
 });
 
 // Pattern Step 3: Stream and download finished video safely
-app.get("/api/studio/video-download", async (req, res) => {
+app.get("/api/video-download", async (req, res) => {
   try {
     const operationName = req.query.operationName as string;
     if (!operationName) {
